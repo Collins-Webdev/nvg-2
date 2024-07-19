@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Vision Group (NVG) - Groupe Commercial Béninois</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-selector select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding: 0 1em 0 0;
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            line-height: inherit;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-video {
+            width: 30%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            width: calc(33.333% - 2rem);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .partners {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partners-slider {
+            display: flex;
+            animation: slide 30s linear infinite;
+        }
+
+        .partner-logo {
+            width: 150px;
+            height: auto;
+            margin: 0 2rem;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: calc(25% - 2rem);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+
+        .map {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .product-card, .team-member {
+                width: calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card, .team-member {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">NVG</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#products">Produits</a></li>
+                <li><a href="#partners">Partenaires</a></li>
+                <li><a href="#team">Équipe</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="language-selector">
+                    <select id="language-select">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>New Vision Group (NVG)</h1>
+            <p>Votre partenaire commercial de confiance au Bénin</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">À propos de nous</h2>
+            <video class="about-video" controls>
+                <source src="../img/vid2.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Nos produits</h2>
+            <div class="products">
+                <div class="product-card">
+                    <img src="1.jpg" alt="Produit 1" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Produit 1</h3>
+                        <p class="product-description">Description du produit 1.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="2.jpg" alt="Produit 2" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Produit 2</h3>
+                        <p class="product-description">Description du produit 2.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="3.jpg" alt="Produit 3" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Produit 3</h3>
+                        <p class="product-description">Description du produit 3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="section partners">
+        <div class="container">
+            <h2 class="section-title">Nos partenaires</h2>
+            <div class="partners-slider">
+                <img src="4.jpg" alt="Partenaire 1" class="partner-logo">
+                <img src="5.jpg" alt="Partenaire 2" class="partner-logo">
+                <img src="6.jpg" alt="Partenaire 3" class="partner-logo">
+                <img src="7.jpg" alt="Partenaire 4" class="partner-logo">
+                <img src="8.jpg" alt="Partenaire 5" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Notre équipe dirigeante</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="9.jpg" alt="Membre de l'équipe 1">
+                    <h3>Nom Prénom</h3>
+                    <p>Poste</p>
+                </div>
+                <div class="team-member">
+                    <img src="10.jpg" alt="Membre de l'équipe 2">
+                    <h3>Nom Prénom</h3>
+                    <p>Poste</p>
+                </div>
+                <div class="team-member">
+                    <img src="11.jpg" alt="Membre de l'équipe 3">
+                    <h3>Nom Prénom</h3>
+                    <p>Poste</p>
+                </div>
+                <div class="team-member">
+                    <img src="12.jpg" alt="Membre de l'équipe 4">
+                    <h3>Nom Prénom</h3>
+                    <p>Poste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>info@newvisiongroupsa.bj</p>
+                    <p>s.client@newvisiongroupsa.bj</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Téléphone</h3>
+                    <p>94 74 74 11 / 90 94 52 55</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Adresse</h3>
+                    <p>Cotonou, Gbedjromede 16 ampoules</p>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3965.119774118109!2d2.417672174991648!3d6.3785366936117835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjInNDIuNyJOIDLCsDI1JzEyLjkiRQ!5e0!3m2!1sfr!2sbj!4v1718972224161!5m2!1sfr!2sbj" class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 New Vision Group (NVG). Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animation au défilement
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.section');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top <= windowHeight * 0.75) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Appel initial
+
+        // Changement de langue
+        document.getElementById('language-select').addEventListener('change', function() {
+            const lang = this.value;
+            // Ici, vous pouvez implémenter la logique pour changer la langue du site
+            console.log('Langue sélectionnée :', lang);
+        });
+
+        // Animation du logo des partenaires
+        const partnersSlider = document.querySelector('.partners-slider');
+        partnersSlider.innerHTML += partnersSlider.innerHTML; // Dupliquer le contenu pour un défilement infini
+
+        // Transition de couleurs
+        function changeColors() {
+            const root = document.documentElement;
+            const colors = [
+                { primary: '#007bff', secondary: '#6c757d', accent: '#ffc107' },
+                { primary: '#28a745', secondary: '#20c997', accent: '#fd7e14' },
+                { primary: '#dc3545', secondary: '#6610f2', accent: '#ffc107' }
+            ];
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % colors.length;
+                root.style.setProperty('--primary-color', colors[currentIndex].primary);
+                root.style.setProperty('--secondary-color', colors[currentIndex].secondary);
+                root.style.setProperty('--accent-color', colors[currentIndex].accent);
+            }, 5000); // Changer les couleurs toutes les 5 secondes
+        }
+
+        changeColors();
+
+        // Animation des cartes de produits
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05)';
+                card.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Animation du titre de la page d'accueil
+        const heroTitle = document.querySelector('.hero h1');
+        heroTitle.innerHTML = heroTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.hero .letter',
+            scale: [0.3,1],
+            opacity: [0,1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 600,
+            delay: (el, i) => 70 * (i+1)
+        }).add({
+            targets: '.hero .letter',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+
+        // Effet de parallaxe pour la section héros
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            document.querySelector('.hero').style.backgroundPositionY = scrollPosition * 0.7 + 'px';
+        });
+
+        // Animation des membres de l'équipe
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', () => {
+                anime({
+                    targets: member,
+                    translateY: -15,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            member.addEventListener('mouseleave', () => {
+                anime({
+                    targets: member,
+                    translateY: 0,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
